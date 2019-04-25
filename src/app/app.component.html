@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <h1>Bootcamp Enrollment Form</h1>
+  <form #userForm="ngForm">
+    {{ userForm.value | json }}
+    <hr>
+    {{userModel | json }}
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" name="Nume" [(ngModel)]="userModel.name">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" class="form-control" name="Email" [ngModel]="userModel.email">
+    </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="tel" class="form-control" name="Telefon" [ngModel]="userModel.phone">
+    </div>
+    <div class="form-group">
+      <select class="custom-select">
+        <option selected>I am</option>
+        <option *ngFor="let topic of topics">{{ topic }}</option>
+      </select>
+    </div>
+    <br>
+    <div class="mb-3">
+      <label >Time preference</label>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" name="timePreference" value="morning">
+      <label class="form-check-label">Morning (9AM - 12PM)</label>
+    </div>
+    <div class="form-check">
+        <input type="radio" class="form-check-input" name="timePreference" value="evening">
+        <label class="form-check-label">Evemimg (5PM - 8PM)</label>
+      </div>
+  </div>
+  <div class="form-check mb-3">
+    <input type="checkbox" class="form-check-input" [ngModel]="userModel.subscribe">
+    <label class="form-check-label">Send me promotional offers</label>
+  </div>
+      <button class="btn btn-primary" type="submit">Submit form</button>
+  </form>
+  </div>
